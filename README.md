@@ -18,7 +18,7 @@
 	<img src='https://cdn.worldvectorlogo.com/logos/fastapi.svg' width=55px height=55px> 
 	<img src='https://github.com/devicons/devicon/blob/master/icons/flask/flask-original.svg' width=55px height=55px> 
 	<img src='https://github.com/devicons/devicon/blob/master/icons/numpy/numpy-original.svg' width=55px height=55px>
-	<img src='https://github.com/devicons/devicon/blob/master/icons/pandas/pandas-original.svg' width=55px height=55px> 
+	<img src='https://github.com/devicons/devicon/blob/master/icons/pandas/pandas-original.svg' width=55px height=55px>
 	<img src='https://github.com/devicons/devicon/blob/master/icons/markdown/markdown-original.svg' width=55px height=55px> 
 	<img src='https://i.stack.imgur.com/zHFFO.png' width=125px height=55px> 
 </p>
