@@ -1,4 +1,4 @@
-## Hi, I'm Sounak <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
+## Hi, I'm Sounak <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/waving-hand_1f44b.png" width="30px">
 
 - 🎓 I am a 3rd Year Computer Science student at Kalinga Institute of Industrial Technology.
 - 🏠 I'm from Kolkata,India and I'm interested to be an ML Engineer/Data Scientist.
