@@ -23,6 +23,8 @@
 	<img src='https://i.stack.imgur.com/zHFFO.png' width=125px height=55px> 
 </p>
 
+<!--
 <p align="center">
 	<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mSounak&layout=compact&theme=gruvbox">
 </p>
+-->
