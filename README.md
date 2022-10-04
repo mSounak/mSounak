@@ -1,6 +1,7 @@
 ## Hi, I'm Sounak <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/waving-hand_1f44b.png" width="30px">
 
-- 🎓 I'm a Senior Computer Science student at Kalinga Institute of Industrial Technology.
+- Data Scientist @<a href="https://www.pratilipi.com">Pratilipi</a>
+- 🎓 Senior Computer Science student at Kalinga Institute of Industrial Technology.
 - 🏠 I'm from Kolkata,India and I'm interested to be an ML Engineer/Data Scientist.
 - 🔭 I’m currently working on Kleur-GAN which helps to colourize the black and white images.
 - 🌱 I’m currently learning MLOps to help deploy and maintain machine learning models in production.
