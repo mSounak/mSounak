@@ -2,7 +2,7 @@
 
 - Data Scientist @<a href="https://www.pratilipi.com">Pratilipi</a>
 - 🎓 Senior Computer Science student at Kalinga Institute of Industrial Technology.
-- 🏠 I'm from Kolkata,India and I'm interested to be an ML Engineer/Data Scientist.
+- 🏠 I'm from Kolkata,India and I'm interested to be ML Engineer/Data Scientist.
 - 🔭 I’m currently working on Kleur-GAN which helps to colourize the black and white images.
 - 🌱 I’m currently learning MLOps to help deploy and maintain machine learning models in production.
 - 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/msounak).
