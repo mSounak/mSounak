@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description?: string;
-  current?: "home" | "posts" | "projects" | "work";
+  current?: "home" | "posts" | "projects" | "about";
 }
 const { title, description, current } = Astro.props;
 const desc = description ?? "Sounak Mukherjee — backend & infrastructure engineer building AI document systems at Staple.";
