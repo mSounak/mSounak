@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description?: string;
-  current?: "home" | "writing" | "projects";
+  current?: "home" | "posts" | "projects" | "work";
 }
 const { title, description, current } = Astro.props;
 const desc = description ?? "Sounak Mukherjee — backend & infrastructure engineer building AI document systems at Staple.";
@@ -22,7 +22,7 @@ const desc = description ?? "Sounak Mukherjee — backend & infrastructure engin
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
-    <link rel="alternate" type="application/rss+xml" title="Sounak — Writing" href="/writing/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Sounak — Posts" href="/posts/rss.xml" />
   </head>
   <body>
     <div class="container">

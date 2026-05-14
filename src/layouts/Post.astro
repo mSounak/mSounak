@@ -9,7 +9,7 @@ interface Props {
 const { title, description, pubDate } = Astro.props;
 const dateStr = pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 ---
-<Base title={`${title} — Sounak`} description={description} current="writing">
+<Base title={`${title} — Sounak`} description={description} current="posts">
   <h1>{title}</h1>
   <p class="post-meta">{dateStr}</p>
   <article>

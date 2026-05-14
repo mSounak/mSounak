@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-interface Props { posts: CollectionEntry<"writing">[]; }
+interface Props { posts: CollectionEntry<"posts">[]; }
 const { posts } = Astro.props;
 const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 ---
@@ -8,7 +8,7 @@ const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month:
   {posts.map((p) => (
     <li>
       <span class="date">{fmt(p.data.pubDate)}</span>
-      <a class="title" href={`/writing/${p.slug}/`}>{p.data.title}</a>
+      <a class="title" href={`/posts/${p.slug}/`}>{p.data.title}</a>
       <div class="summary">{p.data.description}</div>
     </li>
   ))}

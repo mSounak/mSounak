@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 
-const posts = (await getCollection("writing", ({ data }) => !data.draft))
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 const latest = posts[0];
 ---
@@ -30,15 +30,16 @@ const latest = posts[0];
   </p>
 
   <p>
-    See <a href="/writing">/writing</a> for posts and <a href="/projects">/projects</a> for things I&rsquo;ve built.
+    See <a href="/posts">/posts</a> for writing, <a href="/work">/work</a> for what I&rsquo;ve shipped,
+    and <a href="/projects">/projects</a> for things I&rsquo;ve built.
   </p>
 
   {latest && (
     <>
       <hr />
-      <p class="muted">Latest writing</p>
+      <p class="muted">Latest post</p>
       <p>
-        <a href={`/writing/${latest.slug}/`}>{latest.data.title}</a><br />
+        <a href={`/posts/${latest.slug}/`}>{latest.data.title}</a><br />
         <span class="post-meta">{latest.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
       </p>
     </>

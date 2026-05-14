@@ -1,8 +1,9 @@
 ---
-const { current } = Astro.props as { current?: "home" | "writing" | "projects" };
+const { current } = Astro.props as { current?: "home" | "posts" | "projects" | "work" };
 ---
 <nav class="site-nav">
   <a href="/" class={current === "home" ? "home" : ""}>Sounak</a>
-  <a href="/writing">Writing</a>
+  <a href="/posts">Posts</a>
+  <a href="/work">Work</a>
   <a href="/projects">Projects</a>
 </nav>
