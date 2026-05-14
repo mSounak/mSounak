@@ -6,6 +6,6 @@ export default defineConfig({
   site: "https://msounak.dev",
   integrations: [mdx(), sitemap()],
   markdown: {
-    shikiConfig: { theme: "github-light", wrap: true },
+    shikiConfig: { theme: "tokyo-night", wrap: true },
   },
 });

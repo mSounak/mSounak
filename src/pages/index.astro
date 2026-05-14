@@ -7,7 +7,7 @@ const posts = (await getCollection("writing", ({ data }) => !data.draft))
 const latest = posts[0];
 ---
 <Base title="Sounak Mukherjee" current="home">
-  <h1>Sounak Mukherjee</h1>
+  <h1><span class="cursor">Sounak Mukherjee</span></h1>
 
   <p>
     Backend &amp; infrastructure engineer at <a href="https://www.staple.ai/">Staple AI</a>, based in Bengaluru.
