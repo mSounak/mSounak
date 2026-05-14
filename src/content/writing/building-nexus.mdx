@@ -1,0 +1,70 @@
+---
+title: "Building Nexus: a Telegram MCP server with an AI control layer"
+description: "Design notes from wrapping my Telegram account as MCP tools and adding an AI suggestion loop on top."
+pubDate: 2026-05-14
+draft: false
+---
+
+I wanted my Telegram account to be a first-class tool surface for AI assistants — something Claude could read from, write to, and reason about without me babysitting it. The result is **Nexus**, a Go MCP server that exposes Telegram as a small set of tools, plus a control layer called **Nexus Control** that turns it into a real assistant for incoming messages.
+
+This post is a design tour, not a tutorial.
+
+## The MCP surface
+
+The tool list stays small on purpose. Anything larger turns into a maze for the model.
+
+- `list_chats` — recent dialogs
+- `search_chats` — contacts and groups
+- `get_messages` — history from any chat
+- `send_message` — outbound
+- `get_updates` — drain buffered incoming
+- `resolve_username` — `@handle` → chat ID
+- `get_message_media` — download photos
+
+Auth is MTProto via [`gotd/td`](https://github.com/gotd/td). A one-time `--auth` flow writes a session to `~/.telegram-mcp/session.json`; everything after is silent.
+
+## The control loop
+
+Nexus Control is the part that earns the name. It runs in the background and routes every incoming DM and non-channel group message to a private "control group" via a bot. For each message, Claude drafts a reply suggestion and posts it as a reply to the original.
+
+I drive it with reactions:
+
+- 👍 sends the suggestion
+- 👎 rejects it
+- `> custom text` (as a reply) sends my own message in the right chat
+- `> s` sends the suggestion without reacting
+- `SKIP` / `NO` ignores
+- `BRIEF` triggers a morning brief on demand
+
+The reaction-as-interface bit is the thing that made this actually usable. Typing yes/no in a chat felt heavy; reacting is one tap.
+
+## Memory
+
+Two layers:
+
+1. **Profile** — `~/.telegram-mcp/memory/profile.md`, written by hand. Identity, friends, texting style. Injected into every new suggestion session.
+2. **Per-contact** — `~/.telegram-mcp/memory/contacts/<name>.md`, written by Claude Haiku after every approved send. Cheap, async, and means the next conversation starts with context.
+
+Per-chat Claude sessions persist across restarts (`chat-sessions.json`), so suggestion quality grows within a conversation and stays isolated from other chats. This was the single biggest quality jump.
+
+## Morning brief
+
+At 8am (or on demand with `BRIEF`), Nexus pulls:
+
+- Jira — assigned tickets, recent mentions
+- Google Calendar — today's schedule
+- Slack — alert channels, DMs needing response
+- Web — top tech news, local weather
+- Telegram — last 24h of conversation and channel feeds
+
+Then Claude collapses it into a one-screen summary. It's not magic — it's the same data I'd open six tabs for, just stitched together.
+
+## What I'd do differently
+
+A few things I'd change with hindsight:
+
+- Start with the reaction interface, not a chat-style command parser. I burned a weekend on the wrong abstraction.
+- Treat memory as the product, not the tools. The tools are commodity; the memory layer is what makes suggestions feel like *yours*.
+- Don't ship a "general purpose chat" mode early. It dilutes the loop. The thing earns its keep when it's good at one job — drafting replies — not when it tries to be everything.
+
+Source is private for now. Happy to talk about specifics if you're building something similar.
