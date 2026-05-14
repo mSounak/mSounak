@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props { items: CollectionEntry<"projects">[]; }
+const { items } = Astro.props;
+---
+{items.map(async (item) => {
+  const { Content } = await item.render();
+  return (
+    <div class="project">
+      <div class="name">
+        {item.data.repo
+          ? <a href={item.data.repo}>{item.data.name}</a>
+          : item.data.name}
+        <span class="tag"> · {item.data.kind}</span>
+      </div>
+      <Content />
+      <div class="stack">{item.data.stack.join(" · ")}</div>
+    </div>
+  );
+})}

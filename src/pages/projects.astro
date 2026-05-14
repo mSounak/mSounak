@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import ProjectList from "../components/ProjectList.astro";
+
+const items = (await getCollection("projects"))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Projects — Sounak" current="projects">
+  <h1>Projects</h1>
+  <p class="muted">A short list of work and personal projects.</p>
+  <ProjectList items={items} />
+</Base>
