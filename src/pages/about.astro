@@ -40,27 +40,56 @@ import Base from "../layouts/Base.astro";
 
   <h2>Work</h2>
 
-  <p>
-    <strong><a href="https://www.staple.io/">Staple</a></strong> &middot; Software Engineer &middot; <em>2024&ndash;present</em> &mdash;
-    Building infrastructure for a cognitive document-processing platform. Engineered a RabbitMQ-based
-    ingestion system that became the backbone for high-volume processing, shipped an LLM-driven document
-    detection pipeline that lifted accuracy 15%, and built a credit-card redaction model that&rsquo;s
-    processed 510k client documents under compliance constraints.
-  </p>
+  <section class="role">
+    <header class="role-head">
+      <a href="https://www.staple.io/" class="role-company">Staple</a>
+      <span class="role-sep">·</span>
+      <span class="role-title">Software Engineer</span>
+      <span class="role-sep">·</span>
+      <span class="role-period">2024&ndash;present</span>
+    </header>
+    <p class="role-summary">
+      Building infrastructure for a cognitive document-processing platform.
+    </p>
+    <ul class="role-bullets">
+      <li>Engineered a RabbitMQ-based ingestion system &mdash; the backbone for high-volume document processing.</li>
+      <li>Shipped an LLM-driven document detection pipeline that lifted classification accuracy by 15%.</li>
+      <li>Built a credit-card redaction model that&rsquo;s processed 510k client documents under compliance constraints.</li>
+    </ul>
+  </section>
 
-  <p>
-    <strong><a href="https://www.pratilipi.com/">Pratilipi</a></strong> &middot; Data Scientist &middot; <em>2022&ndash;2024</em> &mdash;
-    Owned personalized recommendations (+50% reads, 4&times; subscriptions). Migrated ML workflows to
-    Metaflow and cut deployment costs 70%. Built a semantic-search API on Sentence Transformers and FastAPI
-    that powered content discovery for deals with Disney and Star. Maintained the internal ML platform
-    end-to-end &mdash; AWS, Jenkins, Terraform, Grafana, Metaflow &mdash; the lot.
-  </p>
+  <section class="role">
+    <header class="role-head">
+      <a href="https://www.pratilipi.com/" class="role-company">Pratilipi</a>
+      <span class="role-sep">·</span>
+      <span class="role-title">Data Scientist</span>
+      <span class="role-sep">·</span>
+      <span class="role-period">2022&ndash;2024</span>
+    </header>
+    <p class="role-summary">
+      Owned the recommender stack and most of the internal ML platform.
+    </p>
+    <ul class="role-bullets">
+      <li>Personalized recommendations &mdash; <strong>+50%</strong> reads, <strong>4&times;</strong> subscriptions.</li>
+      <li>Migrated ML workflows to Metaflow; cut deployment costs <strong>70%</strong>.</li>
+      <li>Built a semantic-search API (Sentence Transformers + FastAPI) that powered content deals with Disney and Star.</li>
+      <li>Maintained the internal ML platform end-to-end &mdash; AWS, Jenkins, Terraform, Grafana, Metaflow.</li>
+    </ul>
+  </section>
 
-  <p>
-    <strong>Bobble.ai</strong> &middot; AI Intern &middot; <em>2022</em> &mdash;
-    Conversational-data pipelines, intent recognition, and brand-sentiment models over terabytes of Hindi
-    macaronic text.
-  </p>
+  <section class="role">
+    <header class="role-head">
+      <a href="https://www.bobble.ai/" class="role-company">Bobble.ai</a>
+      <span class="role-sep">·</span>
+      <span class="role-title">AI Intern</span>
+      <span class="role-sep">·</span>
+      <span class="role-period">2022</span>
+    </header>
+    <ul class="role-bullets">
+      <li>Conversational-data pipelines over terabytes of Hindi macaronic text.</li>
+      <li>Intent recognition and brand-sentiment models.</li>
+    </ul>
+  </section>
 
   <h2>Now</h2>
 
@@ -81,6 +110,56 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style>
+  .role {
+    margin: 2em 0;
+    padding-left: 14px;
+    border-left: 1px solid var(--rule);
+  }
+  .role-head {
+    margin-bottom: 0.4em;
+    font-size: 1rem;
+    line-height: 1.5;
+    flex-wrap: wrap;
+  }
+  .role-company {
+    color: var(--accent);
+    font-weight: 500;
+    border-bottom: 0;
+  }
+  .role-company:hover {
+    border-bottom: 1px solid var(--accent);
+  }
+  .role-title { color: var(--bright); }
+  .role-period {
+    color: var(--subtle);
+    font-style: italic;
+  }
+  .role-sep {
+    color: var(--subtle);
+    margin: 0 6px;
+  }
+  .role-summary {
+    margin: 0.4em 0 0.6em;
+    color: var(--muted);
+  }
+  .role-bullets {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.4em 0 0;
+  }
+  .role-bullets li {
+    position: relative;
+    padding-left: 1.2em;
+    margin: 0.35em 0;
+    color: var(--fg);
+  }
+  .role-bullets li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
   .elsewhere {
     list-style: none;
     padding-left: 0;
