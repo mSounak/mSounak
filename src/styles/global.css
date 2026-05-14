@@ -38,31 +38,28 @@ body {
   padding: 48px 24px 96px;
 }
 
-/* nav as a shell prompt line */
+/* nav: name left, links right */
 nav.site-nav {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0;
+  gap: 16px;
   font-size: 14px;
   color: var(--subtle);
-  margin-bottom: 48px;
-  align-items: center;
-}
-nav.site-nav::before {
-  content: "~/sounak $";
-  color: var(--accent);
-  margin-right: 12px;
+  margin-bottom: 64px;
 }
 nav.site-nav a {
   color: var(--muted);
   text-decoration: none;
-  margin-right: 16px;
   border-bottom: 0;
 }
-nav.site-nav a::before { content: "./"; color: var(--subtle); }
 nav.site-nav a:hover { color: var(--accent); }
-nav.site-nav .home { color: var(--bright); }
-nav.site-nav .home::before { content: ""; }
+nav.site-nav .name {
+  color: var(--bright);
+  font-weight: 500;
+}
+.site-nav-links { display: flex; gap: 20px; }
 
 a {
   color: var(--accent-2);
@@ -175,23 +172,19 @@ img { max-width: 100%; height: auto; }
 .project .stack::before { content: "$ "; color: var(--accent); }
 
 footer.site-footer {
-  margin-top: 80px;
+  margin-top: 96px;
   padding-top: 20px;
   border-top: 1px dashed var(--rule);
   color: var(--subtle);
   font-size: 13px;
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 14px;
   align-items: center;
-}
-footer.site-footer::before {
-  content: "~/sounak $ exit";
-  color: var(--accent);
-  margin-right: 6px;
 }
 footer.site-footer a { color: var(--muted); border-bottom: 0; }
 footer.site-footer a:hover { color: var(--accent); }
+footer.site-footer .sep { color: var(--subtle); }
 
 .cursor::after {
   content: "▍";

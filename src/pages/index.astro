@@ -1,47 +1,96 @@
 ---
-import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
-
-const posts = (await getCollection("posts", ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
-const latest = posts[0];
 ---
 <Base title="Sounak Mukherjee" current="home">
-  <h1><span class="cursor">Sounak Mukherjee</span></h1>
+  <h1>About</h1>
 
   <p>
     Hi &mdash; I&rsquo;m Sounak, a backend and infrastructure engineer based in Bangalore.
+    I work at the intersection of <strong>applied AI and backend systems</strong> &mdash;
+    building the kind of plumbing that turns probabilistic models into systems a business can actually run on.
   </p>
 
   <p>
-    I work at the intersection of <strong>applied AI and backend systems</strong> &mdash; currently building infrastructure
-    at <a href="https://www.staple.io/">Staple</a>, where we extract structured data from invoices, contracts, and claims
-    with cryptographic audit trails, so regulated teams can defend every figure to an auditor.
+    Right now I&rsquo;m at <a href="https://www.staple.io/">Staple</a> &mdash; an AI document-processing platform
+    where we extract structured data from invoices, contracts, and claims with cryptographic audit trails,
+    so regulated teams can defend every figure to an auditor. Day-to-day that means owning the message-based
+    ingestion that moves documents through the stack, the LLM-driven detection that decides what each one is,
+    and the redaction systems that handle hundreds of thousands of client documents.
   </p>
 
   <p>
-    Before that, <a href="https://www.pratilipi.com/">Pratilipi</a> &mdash; a self-publishing platform for stories in
-    Indian languages &mdash; where I worked on the data science side.
+    Before Staple I was at <a href="https://www.pratilipi.com/">Pratilipi</a>, a self-publishing platform
+    for stories in Indian languages, where I spent two years as a data scientist. I owned recommendations
+    (50% lift in reads, 4&times; subscriptions), shaved 70% off the ML deployment cost, and stood up most of
+    the internal ML platform on AWS. Pratilipi taught me what ML feels like in production &mdash; latency,
+    cost, observability, the long tail of inputs nobody trained for.
   </p>
 
   <p>
-    I&rsquo;m building the part of AI that doesn&rsquo;t get demoed: the agents, tools, memory layers, and pipelines
-    that turn an impressive model into a system that quietly runs a business.
+    The thread between the two is the same one I keep getting nerd-sniped by: <strong>AI in production</strong>.
+    Demos are easy; the interesting work is in evals, retries, schemas, audit trails, and the boring
+    connective tissue that decides whether a probabilistic system can be trusted with somebody&rsquo;s document &mdash;
+    or somebody&rsquo;s money. I&rsquo;m building the part of AI that doesn&rsquo;t get demoed: the agents, tools, memory
+    layers, and pipelines that turn an impressive model into a system that quietly runs a business.
   </p>
 
   <p>
-    See <a href="/posts">/posts</a> for writing, <a href="/work">/work</a> for what I&rsquo;ve shipped,
-    and <a href="/projects">/projects</a> for things I&rsquo;ve built.
+    When I&rsquo;m not at a keyboard I&rsquo;m probably reading, lifting, or building small tools nobody asked for.
   </p>
 
-  {latest && (
-    <>
-      <hr />
-      <p class="muted">Latest post</p>
-      <p>
-        <a href={`/posts/${latest.slug}/`}>{latest.data.title}</a><br />
-        <span class="post-meta">{latest.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
-      </p>
-    </>
-  )}
+  <h2>Work</h2>
+
+  <p>
+    <strong><a href="https://www.staple.io/">Staple</a></strong> &middot; Software Engineer &middot; <em>2024&ndash;present</em> &mdash;
+    Building infrastructure for a cognitive document-processing platform. Engineered a RabbitMQ-based
+    ingestion system that became the backbone for high-volume processing, shipped an LLM-driven document
+    detection pipeline that lifted accuracy 15%, and built a credit-card redaction model that&rsquo;s
+    processed 510k client documents under compliance constraints.
+  </p>
+
+  <p>
+    <strong><a href="https://www.pratilipi.com/">Pratilipi</a></strong> &middot; Data Scientist &middot; <em>2022&ndash;2024</em> &mdash;
+    Owned personalized recommendations (+50% reads, 4&times; subscriptions). Migrated ML workflows to
+    Metaflow and cut deployment costs 70%. Built a semantic-search API on Sentence Transformers and FastAPI
+    that powered content discovery for deals with Disney and Star. Maintained the internal ML platform
+    end-to-end &mdash; AWS, Jenkins, Terraform, Grafana, Metaflow &mdash; the lot.
+  </p>
+
+  <p>
+    <strong>Bobble.ai</strong> &middot; AI Intern &middot; <em>2022</em> &mdash;
+    Conversational-data pipelines, intent recognition, and brand-sentiment models over terabytes of Hindi
+    macaronic text.
+  </p>
+
+  <h2>Now</h2>
+
+  <p>
+    Building MCP servers for systems I use every day &mdash; Telegram, Slack, Jira &mdash; and stitching them
+    together with Claude. Writing more Go than Python for the first time in years. Reading more on
+    retrieval, evals, and agent memory than usual. Trying to spend less time staring at YAML.
+  </p>
+
+  <h2>Elsewhere</h2>
+
+  <ul class="elsewhere">
+    <li>github &mdash; <a href="https://github.com/mSounak">@mSounak</a></li>
+    <li>twitter &mdash; <a href="https://twitter.com/mSounak2000">@mSounak2000</a></li>
+    <li>linkedin &mdash; <a href="https://www.linkedin.com/in/msounak">in/msounak</a></li>
+    <li>email &mdash; <a href="mailto:m.sounak2000@gmail.com">m.sounak2000@gmail.com</a></li>
+  </ul>
 </Base>
+
+<style>
+  .elsewhere {
+    list-style: none;
+    padding-left: 0;
+  }
+  .elsewhere li {
+    margin: 0.4em 0;
+    color: var(--muted);
+  }
+  .elsewhere li::before {
+    content: "› ";
+    color: var(--accent);
+  }
+</style>
